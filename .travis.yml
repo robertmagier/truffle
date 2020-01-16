@@ -36,7 +36,7 @@ jobs:
         # Use YARN_GPG=no so Travis doesn't freeze after finished build
         - YARN_GPG=no WINDOWS=true
       before_install:
-        - powershell Set-ExecutionPolicy -ExecutionPolicy unrestricted
+        # - powershell Set-ExecutionPolicy -ExecutionPolicy unrestricted
         - npm install -g yarn
       os: windows
       install:
