@@ -10,7 +10,7 @@
     "prepare-release": "./scripts/prepare-release.sh",
     "test": "lerna run test --stream --concurrency=1 -- --colors",
     "ci": "./scripts/ci.sh",
-    "ci_windows": "scripts/test.sh",
+    "ci_windows": "bash ./scripts/test.sh",
     "geth": "./scripts/geth.sh",
     "solc-bump": "node ./scripts/solc-bump.js",
     "update": "lernaupdate"
