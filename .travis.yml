@@ -40,7 +40,7 @@ jobs:
         - npm install -g yarn
       os: windows
       install:
-        - yarn bootstrap_windows
+        - yarn bootstrap
         # - yarn prepare_windows
         # - truffle obtain --solc=0.5.8
       script: 

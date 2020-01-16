@@ -2,6 +2,9 @@
 # Exit script as soon as a command fails.
 set -o errexit
 
+echo WINDOWS = $WINDOWS from ci.sh
+exit 1
+
 run_geth() {
   docker run \
     -v /$PWD/scripts:/scripts \
