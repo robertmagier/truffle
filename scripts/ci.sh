@@ -3,11 +3,11 @@
 set -o errexit
 
 GETH_OPTIONS="--rpc \
-      --rpcaddr '0.0.0.0' \
+      --rpcaddr 0.0.0.0 \
       --rpcport 8545 \
       --rpccorsdomain '*' \
       --ws \
-      --wsaddr '0.0.0.0' \
+      --wsaddr 0.0.0.0 \
       --wsorigins '*' \
       --nodiscover \
       --dev \
