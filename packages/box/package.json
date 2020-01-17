@@ -9,7 +9,6 @@
   "scripts": {
     "build": "tsc",
     "prepare": "yarn build",
-    "prepare_windows": "yarn build",
     "test": "mocha --timeout 10000",
     "test_windows": "mocha --timeout 10000 --colors"
   },
