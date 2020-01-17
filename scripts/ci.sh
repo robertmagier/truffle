@@ -14,11 +14,12 @@ GETH_OPTIONS="--rpc \
       --dev.period 0 \
       --allow-insecure-unlock \
       --miner.gastarget 7000000 \
-      js ./scripts/geth-accounts.js"
+      js ./scripts/geth-accounts.js >>/dev/null"
 
 if [ "$WINDOWS" = true ]; then
   export PATH=$PATH:"/C/Program Files/Geth"
-  geth $GETH_OPTIONS > /dev/null &
+  # We don't use docker on Windows. Geth is installed in before install part in travis.xml. 
+  geth $GETH_OPTIONS 2>&1 > /dev/null &
   lerna run test --stream -- --exit --colors
 else 
 
