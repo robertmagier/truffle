@@ -30,19 +30,7 @@ else
       -p 8546:8546 \
       -p 30303:30303 \
       ethereum/client-go:v1.9.3 \
-      --rpc \
-      --rpcaddr '0.0.0.0' \
-      --rpcport 8545 \
-      --rpccorsdomain '*' \
-      --ws \
-      --wsaddr '0.0.0.0' \
-      --wsorigins '*' \
-      --nodiscover \
-      --dev \
-      --dev.period 0 \
-      --allow-insecure-unlock \
-      --targetgaslimit '7000000' \
-      js ./scripts/geth-accounts.js \
+      $GETH_OPTIONS
       > /dev/null &
   }
 
