@@ -70,7 +70,7 @@ else
     cd quorum-examples
     docker-compose up -d
     sleep 90
-    lerna run --scope truffle test --stream -- --exit --colors
+    lerna run --scope truffle test --stream -- --colors
 
   elif [ "$COLONY" = true ]; then
 
