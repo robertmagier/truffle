@@ -18,7 +18,7 @@ GETH_OPTIONS="--rpc \
 
 if [ "$WINDOWS" = true ]; then
   export PATH=$PATH:"/C/Program Files/Geth"
-  geth $GETH_OPTIONS &
+  geth $GETH_OPTIONS > /dev/null &
   lerna run test --stream -- --exit
 else 
 
