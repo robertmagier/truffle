@@ -2,6 +2,19 @@
 # Exit script as soon as a command fails.
 set -o errexit
 
+GETH_OPTIONS = "--rpc \
+      --rpcaddr '0.0.0.0' \
+      --rpcport 8545 \
+      --rpccorsdomain '*' \
+      --ws \
+      --wsaddr '0.0.0.0' \
+      --wsorigins '*' \
+      --nodiscover \
+      --dev \
+      --dev.period 0 \
+      --allow-insecure-unlock \
+      --targetgaslimit '7000000' \
+      js ./scripts/geth-accounts.js"
 
 if [ "$WINDOWS" = true ]; then
   echo "HERE WE GO WITH WINDOWS"
@@ -18,9 +31,8 @@ if [ "$WINDOWS" = true ]; then
   ls
   export PATH=$PATH:"/C/Program Files/Geth"
   echo PATH=$PATH
-  geth
-
-  exit 1
+  geth $GETH_OPTIONS &
+  lerna run test --stream -- --exit
 else 
 
   run_geth() {
