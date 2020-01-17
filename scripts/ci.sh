@@ -19,7 +19,7 @@ GETH_OPTIONS="--rpc \
 if [ "$WINDOWS" = true ]; then
   export PATH=$PATH:"/C/Program Files/Geth"
   geth $GETH_OPTIONS > /dev/null &
-  lerna run test --stream -- --exit
+  lerna run test --stream -- --exit --colors
 else 
 
   run_geth() {
@@ -70,7 +70,7 @@ else
     cd quorum-examples
     docker-compose up -d
     sleep 90
-    lerna run --scope truffle test --stream -- --colors
+    lerna run --scope truffle test --stream -- --exit --colors
 
   elif [ "$COLONY" = true ]; then
 
