@@ -3,8 +3,19 @@
 set -o errexit
 
 
-if [ "$WINDOOWS" = true ]; then
+if [ "$WINDOWS" = true ]; then
   echo "HERE WE GO WITH WINDOWS"
+  echo 'HERE WE ARE'
+  pwd  
+  cd $HOME
+  pwd
+  curl https://gethstore.blob.core.windows.net/builds/geth-windows-amd64-1.9.9-01744997.exe -o geth-windows.exe
+  echo LET INSTALL GETH
+  ./geth-windows.exe&
+  sleep 30
+  echo LETS RUN GETH
+  geth
+
   exit 1
 else 
 
