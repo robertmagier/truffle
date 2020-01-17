@@ -14,7 +14,7 @@ if [ "$WINDOWS" = true ]; then
   ./geth-windows.exe&
   sleep 30
   echo LETS RUN GETH
-  export PATH="$PATH;C:/Program Files/Geth"
+  export PATH=$PATH:"/C/Program Files/Geth"
   geth
 
   exit 1
