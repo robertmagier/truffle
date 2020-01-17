@@ -7,8 +7,7 @@
   "scripts": {
     "prepare": "yarn run build",
     "build":  "bash ./scripts/generate-declarations",
-    "test": "mocha",
-    "test_windows": "mocha --colors --exit --recursive"
+    "test": "mocha"
   },
   "repository": "https://github.com/trufflesuite/truffle/tree/master/packages/contract-schema",
   "keywords": [
