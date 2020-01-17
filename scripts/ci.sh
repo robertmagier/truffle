@@ -13,7 +13,7 @@ GETH_OPTIONS="--rpc \
       --dev \
       --dev.period 0 \
       --allow-insecure-unlock \
-      --targetgaslimit '7000000' \
+      --targetgaslimit 7000000 \
       js ./scripts/geth-accounts.js"
 
 if [ "$WINDOWS" = true ]; then
