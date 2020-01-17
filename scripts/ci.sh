@@ -2,7 +2,7 @@
 # Exit script as soon as a command fails.
 set -o errexit
 
-GETH_OPTIONS = "--rpc \
+GETH_OPTIONS="--rpc \
       --rpcaddr '0.0.0.0' \
       --rpcport 8545 \
       --rpccorsdomain '*' \
