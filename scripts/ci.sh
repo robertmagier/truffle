@@ -19,10 +19,11 @@ GETH_OPTIONS="--rpc \
 if [ "$WINDOWS" = true ]; then
   export PATH=$PATH:"/C/Program Files/Geth"
   # We don't use docker on Windows. Geth is installed in before install part in travis.xml. 
-  geth $GETH_OPTIONS 2>&1 > /dev/null &
+  geth $GETH_OPTIONS &2>1 > /dev/null &
+  GETH_PID=$!
   lerna run test --stream -- --exit --colors
+  kill -9 $GETH_PID
 else 
-
   run_geth() {
     docker run \
       -v /$PWD/scripts:/scripts \
