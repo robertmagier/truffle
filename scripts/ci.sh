@@ -13,24 +13,11 @@ GETH_OPTIONS="--rpc \
       --dev \
       --dev.period 0 \
       --allow-insecure-unlock \
-      --targetgaslimit 7000000 \
+      --miner.gastarget 7000000 \
       js ./scripts/geth-accounts.js"
 
 if [ "$WINDOWS" = true ]; then
-  echo "HERE WE GO WITH WINDOWS"
-  echo 'HERE WE ARE'
-  pwd  
-  cd $HOME
-  pwd
-  curl https://gethstore.blob.core.windows.net/builds/geth-windows-amd64-1.9.9-01744997.exe -o geth-windows.exe
-  echo LET INSTALL GETH
-  ./geth-windows.exe&
-  sleep 30
-  echo LETS RUN GETH
-  cd "/C/Program Files/Geth"
-  ls
   export PATH=$PATH:"/C/Program Files/Geth"
-  echo PATH=$PATH
   geth $GETH_OPTIONS &
   lerna run test --stream -- --exit
 else 
