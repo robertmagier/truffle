@@ -21,7 +21,9 @@ if [ "$WINDOWS" = true ]; then
   # We don't use docker on Windows. Geth is installed in before install part in travis.xml. 
   geth $GETH_OPTIONS >> /dev/null &2>1 &
   GETH_PID=$!
-  lerna run test --stream -- --exit --colors
+  # We can't exit when lerna fails because we have to kill geth
+  set +o errexit
+  lerna run test --stream --no-bail  -- --exit --colors
   kill -9 $GETH_PID
 else 
   run_geth() {
