@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 set -o errexit
+echo "Here we are in compile-solidity test.sh" 
+pwd
+ls
+
+echo $@
 
 if [ "$CI" = true ]; then
   mocha "./test/** ./test/**/* --timeout 10000 $@"
