@@ -2,6 +2,7 @@
 # Exit script as soon as a command fails.
 set -o errexit
 
+# Verbosity is set to 1 to show only ERROR in geth. 
 GETH_OPTIONS="--rpc \
       --rpcaddr 0.0.0.0 \
       --rpcport 8545 \
@@ -14,12 +15,14 @@ GETH_OPTIONS="--rpc \
       --dev.period 0 \
       --allow-insecure-unlock \
       --miner.gastarget 7000000 \
-      js ./scripts/geth-accounts.js >>/dev/null"
+      --nousb \ 
+      --verbosity 1 \
+      js ./scripts/geth-accounts.js"
 
 if [ "$WINDOWS" = true ]; then
   export PATH=$PATH:"/C/Program Files/Geth"
   # We don't use docker on Windows. Geth is installed in before install part in travis.xml. 
-  geth $GETH_OPTIONS >> /dev/null &2>1 &
+  geth $GETH_OPTIONS &
   GETH_PID=$!
   # We can't exit when lerna fails because we have to kill geth
   set +o errexit
@@ -34,8 +37,7 @@ else
       -p 8546:8546 \
       -p 30303:30303 \
       ethereum/client-go:v1.9.3 \
-      $GETH_OPTIONS
-      > /dev/null &
+      $GETH_OPTIONS &
   }
 
   if [ "$INTEGRATION" = true ]; then
