@@ -1,8 +1,0 @@
-#!/bin/bash
-git add .
-git commit -m " `date '+%d %m %Y %H %M'`"
-git push origin PR_2637_work
-
-echo "Pushed"
-
-
