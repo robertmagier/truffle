@@ -23,7 +23,7 @@ if [ "$WINDOWS" = true ]; then
   export PATH=$PATH:"/C/Program Files/Geth"
   # We don't use docker on Windows. Geth is installed in 'before-install' stage in .travis.xml. 
   geth $GETH_OPTIONS &
-  lerna run test --scope @truffle/compile-solidity --no-bail --stream -- --exit --colors
+  lerna run test --no-bail --stream -- --exit --colors
 else 
   run_geth() {
     docker run \
