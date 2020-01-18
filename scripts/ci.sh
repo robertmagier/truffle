@@ -25,8 +25,8 @@ if [ "$WINDOWS" = true ]; then
   geth $GETH_OPTIONS &
   GETH_PID=$!
   # We can't exit when lerna fails because we have to kill geth
-  set +o errexit
-  lerna run test --stream --no-bail  -- --exit --colors
+  set +o errexit 
+  lerna run test --stream -- --exit --colors
   kill -9 $GETH_PID
 else 
   run_geth() {
