@@ -13,7 +13,6 @@
   "scripts": {
     "build": "tsc",
     "prepare": "yarn build",
-    "prepare_windows": "yarn build",
     "test": "yarn build && mocha --exit -r ts-node/register \"test/**/*.test.ts\""
   },
   "types": "dist/index.d.ts",
