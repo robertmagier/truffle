@@ -16,19 +16,19 @@ GETH_OPTIONS="--rpc \
       --allow-insecure-unlock \
       --miner.gastarget 7000000 \
       --nousb \ 
-      --verbosity 1 \
+      --verbosity 3 \
       js ./scripts/geth-accounts.js"
 
 if [ "$WINDOWS" = true ]; then
   export PATH=$PATH:"/C/Program Files/Geth"
   # We don't use docker on Windows. Geth is installed in before install part in travis.xml. 
   geth $GETH_OPTIONS &
-  GETH_PID=$!
+  # GETH_PID=$!
   # We can't exit when lerna fails because we have to kill geth
   set +o errexit 
   lerna run test --stream -- --exit --colors
   EXIT_CODE=$?
-  kill -9 $GETH_PID
+  # kill -9 $GETH_PID
   exit $EXIT_CODE
 else 
   run_geth() {
