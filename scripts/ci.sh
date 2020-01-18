@@ -21,17 +21,9 @@ GETH_OPTIONS="--rpc \
 
 if [ "$WINDOWS" = true ]; then
   export PATH=$PATH:"/C/Program Files/Geth"
-  # We don't use docker on Windows. Geth is installed in before install part in travis.xml. 
+  # We don't use docker on Windows. Geth is installed in 'before-install' stage in .travis.xml. 
   geth $GETH_OPTIONS &
-  # GETH_PID=$!
-  # We can't exit when lerna fails because we have to kill geth
-  set +o errexit 
-  lerna run test --scope @truffle/compile-solidity --stream -- --exit --colors
-  EXIT_CODE=$?
-  # kill -9 $GETH_PID
-  ps auxf
-  ps auxf|grep geth
-  exit $EXIT_CODE
+  lerna run test --scope @truffle/compile-solidity --no-bail --stream -- --exit --colors
 else 
   run_geth() {
     docker run \
