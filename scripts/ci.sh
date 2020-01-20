@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Exit script as soon as a command fails.
 set -o errexit
+echo WINDOWS: $WINDOWS
 
 # Verbosity is set to 1 to show only ERROR in geth. 
 GETH_OPTIONS="--rpc \
