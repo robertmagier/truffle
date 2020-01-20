@@ -13,7 +13,6 @@
     "truffle-exec": "./exec.js"
   },
   "scripts": {
-    "test_old": "mocha --recursive ./test",
     "test": "mocha --recursive"
   },
   "dependencies": {

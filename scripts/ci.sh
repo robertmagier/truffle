@@ -129,3 +129,4 @@ elif [ "$COVERAGE" = true ]; then
   cat ./packages/debugger/coverage/lcov.info >> ./coverage/lcov.info && \
   cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 fi
+\"test/**\" \"test/**/*\"
