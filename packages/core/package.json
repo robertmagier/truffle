@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test_old": "mocha --recursive ./test",
-    "test": "mocha \"test/**\" \"test/**/*\""
+    "test": "mocha --recursive"
   },
   "dependencies": {
     "@truffle/artifactor": "^4.0.43",
