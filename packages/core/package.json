@@ -13,7 +13,8 @@
     "truffle-exec": "./exec.js"
   },
   "scripts": {
-    "test": "mocha \"./test/**\" \"./test/**/*\""
+    "test": "mocha --recursive ./test",
+    "test_old": "mocha \"./test/**\" \"./test/**/*\""
   },
   "dependencies": {
     "@truffle/artifactor": "^4.0.43",
