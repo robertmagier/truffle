@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc",
     "prepare": "yarn build",
-    "test": "mocha --exit --recursive  -r ts-node/register --file \"*.test.ts\" ./test",
+    "test": "mocha \"test/**/*.test.ts\" --exit  -r ts-node/register ",
     "watch": "tsc -w"
   },
   "dependencies": {
